@@ -1,0 +1,72 @@
+﻿<Window x:Class="Number9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Number9"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE67575"/>
+                <GradientStop Color="#FFBB951C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock x:Name="tbTitleOrder"
+            Text="Сеансы"
+                   FontSize="30"
+                   HorizontalAlignment="Center"/>
+        <!--ListView Для вывода всех сеансов-->
+        <ListView x:Name="LvOrdertList" 
+            HorizontalAlignment="Center"
+                  Grid.Row="1"
+                  d:ItemsSource="{d:SampleData ItemCount=30}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+            <!--Для того чтобы сеансы были динамически двигаемые-->
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <!--Тут мы Говорим, из чего будут состоять объекты в ListView-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="200" Width="130"
+                            BorderBrush="Black"
+                            BorderThickness="2">
+                        <StackPanel>
+                            <Image>
+                                <Image.Source>
+                                    <Binding Path="ImagePath">
+                                        <!--На случай если поле ImagePath окажется пустым-->
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>
+                                                C:\Users\User\source\repos\Number1\Number9\not_found.jpg
+                                            </ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding TitleFilm}"
+                                       Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding CostTicket}"
+                                        Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding DateStart}"
+                                        Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

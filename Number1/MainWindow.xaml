@@ -1,0 +1,56 @@
+﻿<Window x:Class="Number1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Number1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="600">
+    <Grid Background="Aquamarine">
+        <StackPanel>
+            <TextBlock Text="Добавить сотрудника"
+                       HorizontalAlignment="Center"
+                       FontSize="30"/>
+            <TextBlock Text="Введите имя"
+                       FontSize="25"
+                       Margin="0 30 0 0"/>
+            <TextBox x:Name="TbLactName"
+                       FontSize="25"
+                       Margin="0 10 200 0 " />
+            <TextBlock Text="Введите Фамилию"
+                       FontSize="25"
+                       Margin="0 10 0 0"/>
+            <TextBox x:Name="TbFirstName"
+                       FontSize="25"
+                       Margin="0 10 200 0 "/>
+            <TextBlock Text="Введите Отчество"
+                       FontSize="25"
+                       Margin="0 10 0 0"/>
+            <TextBox x:Name="TbPatronymic"
+                       FontSize="25"
+                       Margin="0 10 200 0 "/>
+            <TextBlock Text="Введите телефон"
+                       FontSize="25"
+                       Margin="0 10 0 0"/>
+            <TextBox x:Name="TbLsctPhone"
+                       FontSize="25"
+                       Margin="0 10 200 0 "/>
+            <TextBlock Text="Введите пол"
+                       FontSize="25"
+                       Margin="0 10 0 0"/>
+            <ComboBox x:Name="CmbGender"
+                      Margin="0 10 200 0"
+                      Height="30"/>
+            <TextBlock Text="Введите дату рождения"
+                       FontSize="25"
+                       Margin="0 10 0 0"/>
+            <DatePicker Name ="DpDate"
+                        Height="30"
+                        Margin="0 0 200 0"/>
+            <Button x:Name="BtmAdd"
+                    Height="30"
+                    Margin="0 10 200 0"
+                    Content="Добавить сотрудника" Click="BtmAdd_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
